@@ -1,6 +1,7 @@
 package com.Backend.user.controller;
 
 import com.Backend.user.dto.*;
+import com.Backend.user.exceptions.UserNotFoundException;
 import com.Backend.user.service.AccountVerificationService;
 import com.Backend.user.service.AuthControllerService;
 import com.Backend.user.service.UserService;
@@ -23,7 +24,7 @@ public class AuthControllerServiceImpl implements AuthControllerService {
     }
 
     @Override
-    public ResponseEntity<UserResponse> verifyAccount(String token) {
+    public ResponseEntity<UserResponse> verifyAccount(String token) throws UserNotFoundException {
         return ResponseEntity.ok(accountVerificationService.verifyAccount(token));
     }
 

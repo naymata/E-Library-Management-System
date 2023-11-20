@@ -1,7 +1,7 @@
 package com.Backend.user.implementation;
 
 import com.Backend.user.dto.UserResponse;
-import com.Backend.user.exceptions.NotFoundException;
+import com.Backend.user.exceptions.UserNotFoundException;
 import com.Backend.user.model.User;
 import com.Backend.user.model.VerificationToken;
 import com.Backend.user.repository.UserRepository;
@@ -29,7 +29,7 @@ public class AccountVerificationServiceImpl implements AccountVerificationServic
 
     @Override
     @Transactional
-    public UserResponse verifyAccount(String token) {
+    public UserResponse verifyAccount(String token) throws UserNotFoundException {
 
         Optional<VerificationToken> verificationToken = tokenRepository.findByToken(token);
         if (verificationToken.isPresent()) {
@@ -43,9 +43,9 @@ public class AccountVerificationServiceImpl implements AccountVerificationServic
         return new UserResponse("\"Something wrong with token\" + \"\\nContact admin\"");
     }
 
-    private void fetchUserAndEnable(VerificationToken token) {
+    private void fetchUserAndEnable(VerificationToken token) throws UserNotFoundException {
         User user = userRepository.findByUsername(token.getUser().getUsername())
-                .orElseThrow(() -> new NotFoundException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
         user.setIsAccountNonLocked(true);
         user.setIsAccountNonExpired(true);
         user.setIsCredentialsNonExpired(true);

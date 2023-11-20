@@ -1,27 +1,19 @@
 package com.Backend.book.service;
 
-import com.Backend.book.dto.BookRequest;
-import com.Backend.book.dto.BookResponse;
-import com.Backend.book.dto.BookUpdateRequest;
-import com.Backend.book.model.Book;
-import org.springframework.http.ResponseEntity;
+import com.Backend.book.dto.*;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@RequestMapping(path = "/api/v1/book")
+@RequestMapping(path = "/api/v1.1/book")
 public interface BookControllerService {
 
     @PostMapping("/add-book")
-    ResponseEntity<BookResponse> addBook(@RequestBody BookRequest request);
-
-
+    AddBookResponse addBook(@RequestBody AddBookRequest request);
     @DeleteMapping("/delete/{id}")
-    ResponseEntity<BookResponse> deleteBook(@PathVariable Long id);
-
+    BookDeleteResponse deleteBook(@PathVariable Long id);
     @PutMapping("/update")
-    ResponseEntity<BookResponse> updateBook(@RequestBody BookUpdateRequest request);
-
-    @GetMapping
-    ResponseEntity<List<Book>> getBooks();
+    UpdateBookResponse updateBook(@RequestBody UpdateBookRequest request);
+    @GetMapping("/get-books")
+    BookPaginationResponse pagination(@RequestBody BookPaginationRequest request);
+    @PatchMapping("/book-quantity")
+    UpdateBookQuantityResponse updateBookQuantities(@RequestBody UpdateBookQuantityRequest request);
 }

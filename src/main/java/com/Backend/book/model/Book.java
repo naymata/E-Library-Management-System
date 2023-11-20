@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -17,14 +18,22 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String author;
     private Integer publishedOn;
     private String publisher;
     private BigDecimal price;
-    private List<String> genres;
+    @ElementCollection @CollectionTable(name = "book_genres", joinColumns = @JoinColumn(name = "book_id"))
+    private List<Genres> genres;
+    @Enumerated(EnumType.STRING)
+    private Cover cover;
+    private String ean;
+    private String isbn;
+    private Short pages;
+    private Short quantity;
+    private Boolean isAvailable;
+    @Column(name = "added_on")
+    private LocalDate addedOn;
 }
