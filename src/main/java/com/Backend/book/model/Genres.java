@@ -1,0 +1,30 @@
+package com.Backend.book.model;
+
+public enum Genres {
+    FICTION,
+    NON_FICTION,
+    MYSTERY,
+    THRILLER,
+    SCIENCE_FICTION,
+    FANTASY,
+    ROMANCE,
+    HORROR,
+    ADVENTURE,
+    HISTORICAL_FICTION,
+    BIOGRAPHY,
+    AUTOBIOGRAPHY,
+    SELF_HELP,
+    PHILOSOPHY,
+    PSYCHOLOGY,
+    SCIENCE,
+    MATHEMATICS,
+    HISTORY,
+    ART,
+    COOKING,
+    TRAVEL,
+    POETRY,
+    CHILDREN,
+    YOUNG_ADULT,
+    NONE,
+    TESTING
+}

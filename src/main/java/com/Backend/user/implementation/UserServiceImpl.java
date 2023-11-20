@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
                     var user = createUser(request);
                     sendToken(user);
                     repository.save(user);
-                    return new UserResponse("Account " + ELibraryUtility.CREATED);
+                    return new UserResponse("Account " + "Created");
                 } else {
                     return new UserResponse(ELibraryUtility.INVALID_INFORMATION);
                 }
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
         log.info("{}", request);
         if (!request.username().isEmpty() && !request.password().isEmpty()) {
             repository.save(createAdmin(request));
-            return new UserResponse("Admin " + ELibraryUtility.CREATED);
+            return new UserResponse("Admin " + "Created");
         }
         return new UserResponse(ELibraryUtility.SOMETHING_WENT_WRONG);
     }
@@ -93,7 +93,7 @@ public class UserServiceImpl implements UserService {
     public UserResponse deleteUser(String username) {
         var user = repository.findByUsername(username).orElseThrow();
         repository.deleteById(user.getId());
-        return new UserResponse(ELibraryUtility.DELETED);
+        return new UserResponse("Created");
     }
 
     @Override

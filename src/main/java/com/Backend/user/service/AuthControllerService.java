@@ -1,6 +1,7 @@
 package com.Backend.user.service;
 
 import com.Backend.user.dto.*;
+import com.Backend.user.exceptions.UserNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/api/v1/auth")
@@ -11,7 +12,7 @@ public interface AuthControllerService {
     ResponseEntity<UserResponse> signUp(@RequestBody RegisterRequest request);
 
     @GetMapping("/account-verification/{token}")
-    ResponseEntity<UserResponse> verifyAccount(@PathVariable String token);
+    ResponseEntity<UserResponse> verifyAccount(@PathVariable String token) throws UserNotFoundException;
 
     @PostMapping("/add-admin")
     ResponseEntity<UserResponse> addAdmin(@RequestBody UserRequest request);
