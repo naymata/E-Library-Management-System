@@ -14,4 +14,8 @@ import java.util.List;
 public interface BookRepository extends PagingAndSortingRepository<Book, Long>, JpaRepository<Book, Long> {
 
     Page<Book> findByGenres(Pageable pageable, Genres genres);
+
+    @Query(value = "SELECT * FROM book b " +
+            "WHERE b.quantity < 10", nativeQuery = true)
+    List<Book> findBooksByQuantity();
 }

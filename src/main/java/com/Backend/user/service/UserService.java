@@ -1,21 +1,19 @@
 package com.Backend.user.service;
 
+import com.Backend.user.dto.RegisterRequest;
+import com.Backend.user.dto.RegisterResponse;
 import com.Backend.user.dto.*;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 public interface UserService {
-    UserResponse signUp(@RequestBody RegisterRequest request);
 
-    UserResponse addAdmin(@RequestBody UserRequest request);
+    RegisterResponse addCustomer(RegisterRequest request);
 
-    LoginResponse login(@RequestBody LoginRequest request);
+    UpdateUserResponse updateCustomer(UpdateUserRequest request);
 
-    UserResponse updateUser(@RequestBody UpdateUserRequest request);
+    DeleteUserResponse deleteUser(Long id);
 
-    UserResponse deleteUser(@PathVariable String username);
+    AddStaffResponse addStaff(AddStaffRequest request);
 
-    ListAdminResponse onlyAdmins();
-
+    GetUsersResponse getUsers(GetUsersRequest request);
 }
