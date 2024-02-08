@@ -1,5 +1,6 @@
 package com.Backend.notification.model;
 
+import com.Backend.book.model.Book;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +21,14 @@ public class Notification implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "book_id")
+    private Long bookId;
+
     private String message;
+
+    @Column(name = "is_read")
+    private Boolean isRead;
+
     @Column(name = "added_on")
     private LocalDate addedOn;
 }

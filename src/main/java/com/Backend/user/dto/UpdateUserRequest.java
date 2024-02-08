@@ -1,7 +1,7 @@
 package com.Backend.user.dto;
 
 public record UpdateUserRequest(
-	String username,
+        Long id,
         String password,
         String firstName,
         String lastName,

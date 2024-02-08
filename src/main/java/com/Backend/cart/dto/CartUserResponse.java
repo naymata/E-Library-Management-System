@@ -6,6 +6,7 @@ import java.util.List;
 
 public record CartUserResponse(
         Integer status,
+        String message,
         List<Cart> data
 ) {
 }

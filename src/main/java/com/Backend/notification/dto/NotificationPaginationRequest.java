@@ -1,9 +1,12 @@
 package com.Backend.notification.dto;
 
 
+import com.Backend.notification.enums.NotificationType;
+
 public record NotificationPaginationRequest(
+        Integer page,
         Integer size,
-        Integer page
+        NotificationType notificationType
 ) {
     public NotificationPaginationRequest {
         if (size == null) {
@@ -11,6 +14,9 @@ public record NotificationPaginationRequest(
         }
         if (page == null) {
             page = 0;
+        }
+        if (notificationType == null) {
+            notificationType = NotificationType.UN_READ;
         }
     }
 }
