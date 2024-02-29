@@ -14,7 +14,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -34,7 +33,6 @@ class NotificationServiceImplTest {
     @Mock
     private NotificationRepository repository;
     @Mock
-    private SimpMessagingTemplate template;
     private NotificationServiceImpl underTest;
     private static final Long id = 1L;
     private static final Notification notification = new Notification(null, null, "Hello", false, LocalDate.now());
@@ -42,7 +40,7 @@ class NotificationServiceImplTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        underTest = new NotificationServiceImpl(repository, template);
+        underTest = new NotificationServiceImpl(repository);
     }
 
     @Test
