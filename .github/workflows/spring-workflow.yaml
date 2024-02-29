@@ -32,12 +32,16 @@ jobs:
       run: |
         cd ./spring
         pwd
+        mvn -N io.takari:maven:0.7.7:wrapper
         chmod 755 ./mvnw.sh 
         ./mvnw.sh clean install
+      working-directory: ./spring
 
     - name: Run Spring tests
       run: |
         cd ./spring
         pwd
+        mvn -N io.takari:maven:0.7.7:wrapper
         chmod 755 ./mvnw.sh 
         ./mvnw.sh test
+      working-directory: ./spring
