@@ -2,8 +2,6 @@ name: E-Library-Management-System
 
 on:
   push:
-    branches:
-      - main
   
 jobs:
   trigger_react_workflow:
