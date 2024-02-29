@@ -7,6 +7,10 @@ on:
   pull_request:
     paths:
       - '/react/e-library/**'
+  workflow_run:
+    workflows: ["E-Library-Management-System"]
+    types:
+      - requested      
 jobs:
   build:
     runs-on: ubuntu-latest

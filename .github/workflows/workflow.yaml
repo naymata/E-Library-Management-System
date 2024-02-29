@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-
+  
 jobs:
   trigger_react_workflow:
     runs-on: ubuntu-latest
