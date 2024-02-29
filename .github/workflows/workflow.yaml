@@ -4,7 +4,8 @@ on:
   push:
   
 jobs:
-  trigger_react_workflow:
+  rwflow:
+    name: React Workflow
     runs-on: ubuntu-latest
 
     steps:
@@ -23,3 +24,4 @@ jobs:
       with:
         workflow: Spring CI
         ref: main
+        
