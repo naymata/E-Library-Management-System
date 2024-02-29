@@ -25,13 +25,15 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '19'
+    # - name: Set up Maven
+    #   uses: s4u/setup-maven-action@< version >
 
     - name: Build Spring project
       run: |
         cd ./spring
-        ./mvnw clean install
+        ./mvnw.sh clean install
 
     - name: Run Spring tests
       run: |
         cd ./spring_app
-        ./mvnw test
+        ./mvnw.sh test
