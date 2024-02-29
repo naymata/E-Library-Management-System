@@ -25,13 +25,10 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '19'
-    # - name: Set up Maven
-    #   uses: s4u/setup-maven-action@< version >
 
     - name: Build Spring project
       run: |
         cd ./spring
-        pwd
         mvn -N io.takari:maven:0.7.7:wrapper
         chmod 755 ./mvnw.sh 
         ./mvnw.sh clean install
@@ -39,7 +36,6 @@ jobs:
     - name: Run Spring tests
       run: |
         cd ./spring
-        pwd
         mvn -N io.takari:maven:0.7.7:wrapper
         chmod 755 ./mvnw.sh 
         ./mvnw.sh test

@@ -17,7 +17,8 @@ jobs:
 
   trigger_spring_workflow:
     runs-on: ubuntu-latest
-
+    name: Spring Workflow
+    
     steps:
     - name: Trigger Spring Workflow
       uses: actions/workflow-dispatch@v2
