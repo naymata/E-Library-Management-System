@@ -21,16 +21,16 @@ jobs:
       uses: actions/checkout@v4
 
 
-    -name: Set up Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 14
 
-    -name: Install dependencies
-     run: |
+    - name: Install dependencies
+      run: |
         cd ./react/e-library
         npm install
-    -name: Run tests
+    - name: Run tests
       run: | 
         cd ./react/e-library
         npm test   
