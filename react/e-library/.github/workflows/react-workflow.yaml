@@ -1,0 +1,30 @@
+name: React CI
+
+on:
+  push:
+    paths:
+      - '/react/e-library/**'
+  pull_request:
+    paths:
+      - '/react/e-library/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      -name: Checkout repository
+        uses: actions/checkout@v2
+
+    -name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
+
+    -name: Install dependencies
+     run: |
+        cd e-library
+        npm install
+    -name: Run tests
+      run: | 
+        cd e-library
+        npm test   
