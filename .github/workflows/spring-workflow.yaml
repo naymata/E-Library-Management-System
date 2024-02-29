@@ -32,12 +32,14 @@ jobs:
       run: |
         cd ./spring
         pwd
-        chmod 755 ./mvnw.sh 
+      # chmod 755 ./mvnw.sh 
+        chmod + x ./mvnw.sh 
         ./mvnw.sh clean install
 
     - name: Run Spring tests
       run: |
         cd ./spring
         pwd
-        chmod 755 ./mvnw.sh 
+      # chmod 755 ./mvnw.sh 
+         chmod +x ./mvnw.sh 
         ./mvnw.sh test
