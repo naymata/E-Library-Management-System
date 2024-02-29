@@ -2,8 +2,26 @@ name: E-Library-Management-System
 
 on:
   push:
-    branches:[]
-  pull_request:
-    branches:[]
+    branches:
+      - main
 
 jobs:
+  trigger_react_workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Trigger React Workflow
+      uses: actions/workflow-dispatch@v2
+      with:
+        workflow: React CI
+        ref: main
+
+  trigger_spring_workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Trigger Spring Workflow
+      uses: actions/workflow-dispatch@v2
+      with:
+        workflow: Spring CI
+        ref: main
