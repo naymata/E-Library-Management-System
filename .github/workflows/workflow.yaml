@@ -4,17 +4,6 @@ on:
   push:
   
 jobs:
-  react_workflow:
-    name: React Workflow
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Trigger React Workflow
-      uses: actions/workflow-dispatch@v2
-      with:
-        workflow: React CI
-        ref: main
-
   spring_workflow:
     runs-on: ubuntu-latest
     name: Spring Workflow
